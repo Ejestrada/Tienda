@@ -1,0 +1,17 @@
+{% extends 'tienda/base.html' %}
+
+   {% block content %}
+       <div class="Tienda">
+           {% if tiendas.nombre %}
+           {% endif %}
+          <h2>{{ tiendas.nombre }}</h2>
+           <h5>Direccion: {{ tiendas.direccion }}</h5>
+           <h5>Correo: {{ tiendas.correo }}</h5>
+           <h5>Teléfono: {{ tiendas.telefono }}</h5>
+           {% if user.is_authenticated %}
+           <a class="waves-effect waves-light btn" href="{% url 'tienda_del' pk=tiendas.pk %}"><i class="material-icons left">delete</i>Eliminar</a>
+           <a class="waves-effect waves-light btn" href="{% url 'tienda_editar' pk=tiendas.pk %}"><i class="material-icons left">edit</i>Editar</a>
+           {% endif %}
+
+          </div>
+   {% endblock %}

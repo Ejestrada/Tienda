@@ -1,0 +1,16 @@
+{% extends 'tienda/base.html' %}
+
+   {% block content %}
+       <div class="tienda">
+           {% if bodegas.tienda.nombre %}
+           {% endif %}
+           <h4>{{ bodegas.tienda.nombre  }}</h4>
+           <h5>Producto: {{ bodegas.producto.nombre }}</h5>
+           <h5>Precio: {{ bodegas.producto.precio }}</h5>
+           <h4>Existencias: {{ bodegas.existencia|linebreaksbr }}</h4>
+           {% if user.is_authenticated %}
+           <a class="waves-effect waves-light btn" href="{% url 'bodega_del' pk=bodegas.pk %}"><i class="material-icons left">delete</i>Eliminar</a>
+           <a class="waves-effect waves-light btn" href="{% url 'bodega_editar' pk=bodegas.pk %}"><i class="material-icons left">edit</i>Editar</a>
+           {% endif %}
+       </div>
+   {% endblock %}

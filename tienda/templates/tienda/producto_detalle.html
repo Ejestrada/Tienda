@@ -1,0 +1,17 @@
+{% extends 'tienda/base.html' %}
+
+   {% block content %}
+       <div class="tienda">
+           {% if productos.nombre %}
+           {% endif %}
+           {% if user.is_authenticated %}
+           <a class="btn btn-default" href="{% url 'producto_del' pk=productos.pk %}"><span class="glyphicon glyphicon-remove"> Eliminar</span></a>
+           <a class="btn btn-default" href="{% url 'producto_editar' pk=productos.pk %}"><span class="glyphicon glyphicon-pencil"> Editar</span></a>
+           {% endif %}
+
+           <h2>{{ productos.nombre }}</h2>
+           <h6>Descripción: {{ productos.descripcion }}</h6>
+           <h4>Precio: {{ productos.precio }}</h4>
+
+       </div>
+   {% endblock %}

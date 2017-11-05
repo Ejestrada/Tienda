@@ -1,0 +1,16 @@
+{% extends 'tienda/base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<a class="waves-effect waves-light btn" href="{% url 'tienda.views.tienda_nueva' %}"><i class="material-icons left">create</i>Tienda Nueva</a>
+{% endif %}
+  {% for tienda in tiendas %}
+      <div class="tienda">
+          <h1><a href="{% url 'tienda.views.tienda_detalle' pk=tienda.pk %}">{{ tienda.nombre }}</a></h1>
+          <div class="text-detail">
+             <p>Dirección:{{ tienda.direccion  }}</p>
+             <p>Correo: {{ tienda.correo }}</p>
+          </div>
+      </div>
+  {% endfor %}
+{% endblock %}

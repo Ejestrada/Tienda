@@ -1,0 +1,83 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Tienda</title>
+        {% include 'material/includes/material_css.html' %}
+        {% include 'material/includes/material_js.html' %}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+      <nav class="barra">
+  <div class="nav-wrapper">
+    <a href="{% url 'tienda.views.info_index' %}" class="brand-logo">Tienda Products</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="{% url 'tienda.views.info_index' %}">Home</a></li>
+      <li><a href="{% url 'tienda.views.tienda_list' %}">Tiendas</a></li>
+      <li><a href="{% url 'tienda.views.bodega_list' %}">Bodegas</a></li>
+      <li><a href="{% url 'tienda.views.producto_lista' %}">Productos</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+      {% else %}
+      <li><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+      <div class="row3">
+          <div class="row">
+              <div class="col-md-8">
+              {% block content %}
+              {% endblock %}
+              </div>
+          </div>
+      </div>
+      <div class="wrapper row4">
+        <footer id="footer" class="hoc clear">
+          <!-- ################################################################################################ -->
+          <div class="one_quarter">
+            <h6 class="heading">Nuestras Redes Sociales</h6>
+            <ul class="faico clear">
+              <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook-f"></i></a></li>
+              <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
+            </ul>
+          </div>
+          <!-- ################################################################################################ -->
+        </footer>
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ -->
+      <div class="wrapper row5">
+        <div id="copyright" class="hoc clear">
+          <!-- ################################################################################################ -->
+          <p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Domain Name</a></p>
+          <p class="fl_right">Creado por Lotus Corporation</a></p>
+          <!-- ################################################################################################ -->
+        </div>
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ -->
+      <!-- ################################################################################################ -->
+      <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+      <!-- JAVASCRIPTS -->
+      <script src="{% static "scripts/jquery.min.js" %}"></script>
+      <script src="{% static "scripts/jquery.backtotop.js" %}"></script>
+      <script src="{% static "scripts/jquery.mobilemenu.js" %}"></script>
+
+
+  </body>
+</html>

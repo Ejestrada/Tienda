@@ -1,0 +1,15 @@
+{% extends 'tienda/base.html' %}
+    {% block content %}
+
+    {% if user.is_authenticated %}
+    <a class="waves-effect waves-light btn" href="{% url 'tienda.views.producto_nuevo' %}"><i class="material-icons left">create</i>Producto Nuevo</a>
+    {% endif %}
+    {% for prod in productos %}
+        <div class="tienda">
+            <h1><a href="{% url 'tienda.views.producto_detalle' pk=prod.pk %}">{{ prod.nombre }}</a></h1>
+            <div class="text-detail">
+              <h5>Precio: {{ prod.precio }}</h5>
+          </div>
+        </div>
+    {% endfor %}
+  {% endblock content %}

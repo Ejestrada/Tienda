@@ -1,0 +1,38 @@
+{% extends 'tienda/base.html' %}
+
+{% block content %}
+<div class="tienda">
+
+<table>
+  <tr>
+    <th>Tienda</th>
+    <th>Producto</th>
+    <th>Existencia</th>
+    <th></th>
+  </tr>
+  {% for bod in bodegas %}
+  <tr>
+    <td>
+      <h4>{{ bod.tienda.nombre }}</a></h4>
+    </td>
+    <td><div class="text-detail">
+        <h6>Producto:{{ bod.producto.nombre  }}</h6>
+        </div>
+    </td>
+    <td><div class="text-detail"
+      <h6>Existencia: {{ bod.existencia }}</h6>
+        </div>
+    </td>
+    <td>
+      <a class="waves-effect waves-light btn" href="{% url 'tienda.views.bodega_detalle' pk=bod.pk %}"><i class="material-icons left">view_list</i>Ver</a>
+    </td>
+   {% endfor %}
+  </tr>
+
+</table>
+<a class="waves-effect waves-light btn" href="{% url 'tienda.views.bodega_nueva' %}"><i class="material-icons left">create</i>Agregar Producto Nuevo</a>
+
+      </div>
+
+
+{% endblock content %}
