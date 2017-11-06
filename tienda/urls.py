@@ -14,12 +14,8 @@ urlpatterns = [
     url(r'^producto/(?P<pk>[0-9]+)/editar/$', views.producto_editar, name='producto_editar'),
     url(r'^producto/(?P<pk>\d+)/del/$', views.producto_del, name='producto_del'),
     url(r'^bodegas', views.bodega_list, name='bodega_list'),
-    #url(r'^$', views.tienda_list),
     url(r'^bodega/(?P<pk>[0-9]+)/$', views.bodega_detalle, name='bodega_detalle'),
     url(r'^bodega/nueva/$', views.bodega_nueva, name='bodega_nueva'),
     url(r'^bodega/(?P<pk>[0-9]+)/editar/$', views.bodega_editar, name='bodega_editar'),
     url(r'^bodega/(?P<pk>\d+)/del/$', views.bodega_del, name='bodega_del'),
-
-    #url(r'^doctores/', views.doctor_lista, name='doctor_lista'),
-
 ]
